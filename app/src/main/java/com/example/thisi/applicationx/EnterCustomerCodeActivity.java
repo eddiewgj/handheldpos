@@ -112,7 +112,6 @@ public class EnterCustomerCodeActivity extends Activity {
                     return true;
                 }
                 return false;
-
             }
         });
     }

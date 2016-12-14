@@ -33,14 +33,15 @@ public class EnterCustomerCodeActivity extends Activity {
     }
 
     public void onCustomerCodeOK(View view) { // Edited by Eddie 14/12/2016,
-        String textCustomerCode = custCodeTextbox.getText().toString();
+        String textCustomerCode = custCodeTextbox.getText().toString().trim().replaceAll("\\n|\\t|\\r| ","");
         searchCustomerCode(textCustomerCode);
     }
 
     private void searchCustomerCode(String customerCode) { // Edited by Eddie 14/12/2016
        // String tempCustCode = customerCode;
 
-        String custCode = customerCode.trim().replaceAll("\\n|\\t|\\r| ","");
+        String custCode = customerCode;
+        //String custCode = customerCode.trim().replaceAll("\\n|\\t|\\r| ","");
         //custCode = custCode.trim();
         //custCode = custCode.replaceAll("\\n", "");
         //custCode = custCode.replaceAll("\\r", "");

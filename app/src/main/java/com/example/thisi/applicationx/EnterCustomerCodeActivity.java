@@ -10,14 +10,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-
-/**
- * Created by thisi on 10/24/2016.
- */
 
 public class EnterCustomerCodeActivity extends Activity {
     DatabaseHelper myDb;
@@ -40,7 +32,6 @@ public class EnterCustomerCodeActivity extends Activity {
     private void searchCustomerCode(String customerCode) { // Edited by Eddie 14/12/2016
        // String tempCustCode = customerCode;
 
-        String custCode = customerCode;
         //String custCode = customerCode.trim().replaceAll("\\n|\\t|\\r| ","");
         //custCode = custCode.trim();
         //custCode = custCode.replaceAll("\\n", "");
@@ -56,7 +47,7 @@ public class EnterCustomerCodeActivity extends Activity {
         db.beginTransaction();
 
         try {
-            String selectQuery = "SELECT * FROM customer WHERE CUSTOMER_CODE = '" + custCode + "';";
+            String selectQuery = "SELECT * FROM customer WHERE CUSTOMER_CODE = '" + customerCode + "';"; // Edited by Eddie 14/12/2016, change from custCode > customerCode
 
             Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -83,7 +74,7 @@ public class EnterCustomerCodeActivity extends Activity {
         else {
             finish();
             Intent intent = new Intent(this, OrderActivity.class);
-            intent.putExtra("customer_code", custCode);
+            intent.putExtra("customer_code", customerCode); // Edited by Eddie 14/12/2016, change from custCode > customerCode
             intent.putExtra("price_group_code", price_grp_code);
             startActivity(intent);
         }
